@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "adb4b680144df947b976ddb89b6572b1",
+    "content-hash": "c702b48b405be90bb4f192d78c9abb0a",
     "packages": [
         {
             "name": "brick/math",
@@ -5562,6 +5562,90 @@
             "time": "2024-12-21T16:25:41+00:00"
         },
         {
+            "name": "tr3mulant/channel-lister",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "../channel-lister",
+                "reference": "131816138f0fe2631c512edb72d3aabd06485e5a"
+            },
+            "require": {
+                "illuminate/database": "^12.19",
+                "illuminate/support": "^12.19",
+                "laravel/framework": "^12.19",
+                "php": "^8.3.0"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.18.1",
+                "pestphp/pest": "^3.5.1",
+                "pestphp/pest-plugin-type-coverage": "^3.1",
+                "phpstan/phpstan": "^1.12.7",
+                "rector/rector": "^1.2.8",
+                "symfony/var-dumper": "^7.1.6"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "IGE\\ChannelLister\\ChannelListerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "IGE\\ChannelLister\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "IGE\\ChannelLister\\Tests\\": "tests/"
+                }
+            },
+            "scripts": {
+                "refacto": [
+                    "rector"
+                ],
+                "lint": [
+                    "pint"
+                ],
+                "test:refacto": [
+                    "rector --dry-run"
+                ],
+                "test:lint": [
+                    "pint --test"
+                ],
+                "test:types": [
+                    "phpstan analyse --ansi"
+                ],
+                "test:unit": [
+                    "pest --colors=always --coverage --parallel --min=100"
+                ],
+                "test": [
+                    "@test:refacto",
+                    "@test:lint",
+                    "@test:types",
+                    "@test:unit"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Scott St. John",
+                    "email": "scottkstjohn87@gmail.com"
+                }
+            ],
+            "description": "Guided product creation for eComm",
+            "keywords": [
+                "package",
+                "php"
+            ],
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
             "name": "vlucas/phpdotenv",
             "version": "v5.6.2",
             "source": {
@@ -9023,8 +9107,10 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "tr3mulant/channel-lister": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
