@@ -4,4 +4,11 @@
 
 ---
 
-Check out the `composer.json` scripts to run this app.
+Check out the `composer.json` scripts to run this app.</br>
+Be sure to replace the `composer dev` script's second command
+
+```bash
+"npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan serve --port=APP_PORT\" \"php artisan queue:listen --tries=1\" \"php artisan pail --timeout=0\" \"npm run dev\" --names=server,queue,logs,vite"
+```
+
+with the port number of `APP_PORT` in your `.env` file.
